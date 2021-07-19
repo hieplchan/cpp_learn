@@ -19,7 +19,7 @@ int main() {
         }
     }
 
-    for (decltype(scores.size()) index = 0; index <=10; index++) {
+    for (decltype(scores.size()) index = 0; index <scores.size(); index++) {
         cout << scores[index] << " ";
     }
 
