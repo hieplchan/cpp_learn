@@ -22,5 +22,14 @@ int main() {
     }
     cout << endl;
 
+    // Another way to write array
+    unsigned *pBegin = std::begin(scores);
+    unsigned *pEnd = std::end(scores);
+    while (pBegin != pEnd) {
+        cout << *pBegin << " ";
+        ++pBegin;
+    }
+    cout << endl;
+
     return 0;
 }
