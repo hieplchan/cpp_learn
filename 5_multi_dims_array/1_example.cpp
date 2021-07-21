@@ -18,11 +18,17 @@ int main() {
             ++cnt;
         }
 
-    for (auto &row : ia)
-        for (auto &col : row)
-            std::cout << col << " ";
+    // for (auto &row : ia)
+    //     for (auto &col : row)
+    //         std::cout << col << " ";
+    // std::cout << std::endl;
 
-    std::cout << std::endl;
+    // Another way to print using pointer
+    for (auto p = ia; p != ia + row; ++p) {
+        for (auto q = *p; q != *p + col; ++q)
+           std::cout << *q << " "; 
+        std::cout << std::endl;
+    }
 
     return 0;
 }
