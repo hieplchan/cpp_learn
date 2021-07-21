@@ -1,5 +1,8 @@
 #include <iostream>
 
+using std::begin;
+using std::end;
+
 int main() {
     constexpr size_t row = 3, col = 4;
     int ia[row][col];
@@ -24,8 +27,15 @@ int main() {
     // std::cout << std::endl;
 
     // Another way to print using pointer
-    for (auto p = ia; p != ia + row; ++p) {
-        for (auto q = *p; q != *p + col; ++q)
+    // for (auto p = ia; p != ia + row; ++p) {
+    //     for (auto q = *p; q != *p + col; ++q)
+    //        std::cout << *q << " "; 
+    //     std::cout << std::endl;
+    // }
+
+    // Another way to print using begin & end
+    for (auto p = begin(ia); p != end(ia); ++p) {
+        for (auto q = begin(*p); q != end(*p); ++q)
            std::cout << *q << " "; 
         std::cout << std::endl;
     }
