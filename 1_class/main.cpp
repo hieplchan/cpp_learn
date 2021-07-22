@@ -22,5 +22,7 @@ int main() {
         std::cerr << "Input Error" << std::endl;
     }
 
+    std::cout << "Size of Sales_item: " << sizeof(Sales_item) << std::endl;
+
     return 0;
 }
