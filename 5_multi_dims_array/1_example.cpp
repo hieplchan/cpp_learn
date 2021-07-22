@@ -16,10 +16,8 @@ int main() {
     // Another version using for range
     int cnt = 0;
     for (auto &row : ia)
-        for (auto &col : row) {
-            col = cnt;
-            ++cnt;
-        }
+        for (auto &col : row)
+            col = cnt++;
 
     // for (auto &row : ia)
     //     for (auto &col : row)
