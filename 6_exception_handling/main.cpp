@@ -19,17 +19,23 @@ int main() {
     cin >> data2.bookNo >> data2.units_sold >> price;
     data2.revenue = data2.units_sold * price;
 
-    if (data1.bookNo == data2.bookNo) {
-        unsigned count = data1.units_sold + data2.units_sold;
-        if (count != 0) {
-            cout << (data1.revenue + data2.revenue)/count << endl;
+    try {
+        if (data1.bookNo == data2.bookNo) {
+            unsigned count = data1.units_sold + data2.units_sold;
+            if (count != 0) {
+                cout << (data1.revenue + data2.revenue)/count << endl;
+            } else {
+                cout << "No sales" << endl;
+            }
+            return 0;
         } else {
-            cout << "No sales" << endl;
+            throw std::runtime_error("Please enter same ISBN");
+            // cout << "Please enter same ISBN" << endl;
+            return -1;
         }
-        return 0;
-    } else {
-        throw std::runtime_error("Please enter same ISBN");
-        // cout << "Please enter same ISBN" << endl;
-        return -1;
+    } catch (std::runtime_error e) {
+        cout << e.what() << endl;
     }
+
+    return 0;
 }
