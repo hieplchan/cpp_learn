@@ -5,6 +5,13 @@
 #include <iostream>
 
 struct Sales_data {
+    /* Constructors */
+    Sales_data() = default; // default constructor as normal
+    Sales_data(const std::string &s, unsigned n, double p): // constructor with params
+        m_book_no(s), m_units_sold(n), m_revenue(n*p) { }; // function body is empty
+    Sales_data(const std::string &s): m_book_no(s) { }; // other variable use with in-class initializers value
+    Sales_data(std::istream &);
+
     /* operators member of class Sales_data */
     // const at the end - compiler throw error if this function change member variable of class
     // function defined inside class are implicity inline
@@ -22,6 +29,12 @@ struct Sales_data {
 Sales_data add(const Sales_data&, const Sales_data&);
 std::ostream &print(std::ostream&, const Sales_data&);
 std::istream &read(std::istream&, Sales_data&);
+
+/* Constructor defined outside of the Class */
+// member of this object is initialized before constructor body is execute
+Sales_data::Sales_data(std::istream &in_stream) {
+    read(in_stream, *this);
+}
 
 /* Function definition - implementation */
 
