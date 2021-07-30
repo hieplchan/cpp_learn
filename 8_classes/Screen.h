@@ -13,11 +13,16 @@ public:
     inline char get(pos r, pos c) const; // explicitly inline
     char get() const { return contents[cursor]; } // implicitly inline
     Screen &move(pos r, pos c); // inline outside - make easier to read
+    void some_member() const;
+    size_t access_ctr_count() const {
+        return access_ctr;
+    }
 
 private:
     pos cursor = 0;
     pos width = 0, height = 0;
     std::string contents;
+    mutable size_t access_ctr; // mutable object is never const - even if object is const
 };
 
 inline Screen &Screen::move(pos r, pos c) { // explicitly inline outside of Class
@@ -29,5 +34,7 @@ char Screen::get(pos r, pos c) const {
     pos row = r * width;
     return contents[row + c];
 }
-
+void Screen::some_member() const {
+    ++ access_ctr;
+}
 #endif
