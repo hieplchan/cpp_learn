@@ -12,6 +12,8 @@ public:
     
     inline char get(pos r, pos c) const; // explicitly inline
     char get() const { return contents[cursor]; } // implicitly inline
+    Screen &set(char);
+    Screen &set(pos, pos, char);
     Screen &move(pos r, pos c); // inline outside - make easier to read
     void some_member() const;
     size_t access_ctr_count() const {
@@ -33,6 +35,14 @@ inline Screen &Screen::move(pos r, pos c) { // explicitly inline outside of Clas
 char Screen::get(pos r, pos c) const {
     pos row = r * width;
     return contents[row + c];
+}
+inline Screen &Screen::set(char c) {
+    contents[cursor] = c;
+    return *this; // return this object as an lvalue
+}
+inline Screen &Screen::set(pos r, pos col, char c) {
+    contents[r*width + col] = c;
+    return *this;
 }
 void Screen::some_member() const {
     ++ access_ctr;
