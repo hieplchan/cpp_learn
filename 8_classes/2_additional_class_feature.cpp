@@ -1,6 +1,6 @@
 #include <iostream>
-#include "Screen.h"
 #include "Window_mgr.h"
+#include "Screen.h"
 
 using std::cout;
 using std::cin;
@@ -32,6 +32,10 @@ int main() {
     cout << endl;
     my_screen.set(2, 3, 'k').display(cout);
     cout << endl;
+
+    // Window manager test
+    Window_mgr my_window_mgr;
+    my_window_mgr.clear(0);
 
     return 0;
 }

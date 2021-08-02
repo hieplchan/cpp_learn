@@ -4,6 +4,7 @@
 #include <string>
 
 class Screen {
+    friend class Window_mgr; // Window_mgr can access private var of Screen
 public:
     typedef std::string::size_type pos; // types member - hide what type is used - user only know "pos" - not "size_type"
     Screen() = default;
