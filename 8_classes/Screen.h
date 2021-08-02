@@ -19,12 +19,22 @@ public:
     size_t access_ctr_count() const {
         return access_ctr;
     }
+    Screen &display(std::ostream &os) {
+        do_display(os);
+        return *this;
+    }
+    const Screen &display(std::ostream &os) const {
+        do_display(os);
+        return *this;
+    }
 
 private:
     pos cursor = 0;
     pos width = 0, height = 0;
     std::string contents;
     mutable size_t access_ctr; // mutable object is never const - even if object is const
+
+    void do_display(std::ostream &os) const { os << contents; }; 
 };
 
 inline Screen &Screen::move(pos r, pos c) { // explicitly inline outside of Class
