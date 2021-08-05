@@ -11,12 +11,18 @@ struct Sales_data {
     friend std::istream &read(std::istream&, Sales_data&);
 
     /* Constructors */
-    // Sales_data() = default; // default constructor as normal
     Sales_data(const std::string &s, unsigned n, double p): // constructor with params
         m_book_no(s), m_units_sold(n), m_revenue(n*p) { }; // function body is empty
-    // Sales_data(const std::string &s): m_book_no(s) { }; // other variable use with in-class initializers value
-    Sales_data(std::string s = ""): m_book_no(s) { } // Same as default constructor
     Sales_data(std::istream &);
+
+    /* Normal constructor */
+    // Sales_data() = default; // default constructor as normal
+    // Sales_data(const std::string &s): m_book_no(s) { }; // other variable use with in-class initializers value
+    // Sales_data(std::string s = ""): m_book_no(s) { } // Same as default constructor
+
+    /* Delegating constructor base on previous constructor */
+    Sales_data(): Sales_data("", 0, 0) { };
+    Sales_data(std::string s): Sales_data(s, 0, 0) { };
 
     /* operators member of class Sales_data */
     // const at the end - compiler throw error if this function change member variable of class
