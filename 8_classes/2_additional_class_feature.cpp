@@ -37,5 +37,7 @@ int main() {
     Window_mgr my_window_mgr;
     my_window_mgr.clear(0);
 
+    Window_mgr::ScreenIndex size = my_window_mgr.addScreen(Screen(5, 5, '3'));    
+
     return 0;
 }

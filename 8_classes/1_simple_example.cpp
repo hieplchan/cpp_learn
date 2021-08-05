@@ -11,9 +11,9 @@ int main() {
 
     // Testing constructor
     cout << "Constructor test" << endl;
-    Sales_data test1;
-    Sales_data test2("0-201-78345-2", 3, 10);
-    Sales_data test3("0-201-78345-1");
+    Sales_data test1; // default constructor
+    Sales_data test2("0-201-78345-1");
+    Sales_data test3("0-201-78345-2", 3, 10);
     Sales_data test4(cin);
     print(cout, test1) << endl;
     print(cout, test2) << endl;
