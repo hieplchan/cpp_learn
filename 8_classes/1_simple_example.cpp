@@ -20,6 +20,10 @@ int main() {
     print(cout, test3) << endl;
     print(cout, test4) << endl;
 
+    // test5 is a function take no argument, return type Sales_data
+    // test5 is not an object of Sales_data!!!! This is a function
+    Sales_data test5(); 
+
     cout << "Programe test" << endl;
     Sales_data total;
     if (read(cin, total)) {
