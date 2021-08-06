@@ -13,7 +13,7 @@ struct Sales_data {
     /* Constructors */
     Sales_data(const std::string &s, unsigned n, double p): // constructor with params
         m_book_no(s), m_units_sold(n), m_revenue(n*p) { }; // function body is empty
-    Sales_data(std::istream &);
+    explicit Sales_data(std::istream &);
 
     /* Normal constructor */
     // Sales_data() = default; // default constructor as normal
@@ -22,7 +22,7 @@ struct Sales_data {
 
     /* Delegating constructor base on previous constructor */
     Sales_data(): Sales_data("", 0, 0) { };
-    Sales_data(std::string s): Sales_data(s, 0, 0) { };
+    explicit Sales_data(std::string s): Sales_data(s, 0, 0) { };
 
     /* operators member of class Sales_data */
     // const at the end - compiler throw error if this function change member variable of class

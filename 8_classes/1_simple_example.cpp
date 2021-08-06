@@ -22,7 +22,15 @@ int main() {
 
     // test5 is a function take no argument, return type Sales_data
     // test5 is not an object of Sales_data!!!! This is a function
-    Sales_data test5(); 
+    Sales_data test5();
+
+
+    /* Implicit conversion - prevent if use explicit to constructor */
+    // std::string a("0-201-78345-2");
+    // test3.combine(a); // a is convert into Sales_data temp object
+    // test3.combine("0-201-78345-2"); // error because only-one conversion is allowed
+    // test3.combine(std::string("0-201-78345-2")); // this is allowed
+    test3.combine(Sales_data("0-201-78345-2")); // this is allowed
 
     cout << "Programe test" << endl;
     Sales_data total;
