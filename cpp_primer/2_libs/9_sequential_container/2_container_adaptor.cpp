@@ -2,17 +2,18 @@
 #include <stack>
 #include <vector>
 #include <queue>
+#include <list>
 
 int main() {
     std::stack<int> test_stack;
     std::vector<int> test_vector;
-    std::queue<int> test_queue;
+    std::list<int> test_list;
 
     // Add some test element
     for (size_t i = 0; i < 10; i++) {
         test_stack.push(i);
         test_vector.push_back(i);
-        test_queue.push(i);
+        test_list.push_back(i);
     }
 
     std::cout << "Test stack " << std::endl;
@@ -31,6 +32,8 @@ int main() {
     std::cout << std::endl;
 
     std::cout << "Test queue " << std::endl;
+    // Queue build on top of list
+    std::queue<int, std::list<int>> test_queue(test_list);
     while (!test_queue.empty()) {
         std::cout << test_queue.front() << " ";
         test_queue.pop();
