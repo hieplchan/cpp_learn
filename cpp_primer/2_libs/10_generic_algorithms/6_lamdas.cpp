@@ -33,5 +33,12 @@ int main() {
     }
     std::cout << std::endl;
 
+    // lamdas captured list (can use local variables)
+    int min_size = 4;
+    auto wc = std::find_if(words.begin(), words.end(), 
+                                [min_size](const std::string &a)
+                                { return a.size() >= min_size; });
+    std::cout << "First words size > " << min_size << " is: " << *wc << std::endl;
+
     return 0;
 }
