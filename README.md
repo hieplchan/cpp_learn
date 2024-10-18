@@ -9,3 +9,4 @@
 # other resources
 - https://embeddedartistry.com/beginners/
 - https://www.youtube.com/watch?v=B31LgI4Y4DQ
+- https://stackoverflow.com/questions/388242/the-definitive-c-book-guide-and-list
