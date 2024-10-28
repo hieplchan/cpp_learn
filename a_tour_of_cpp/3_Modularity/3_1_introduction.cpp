@@ -13,11 +13,38 @@ double sqrt_sum(Vector v) {
     return sum;
 }
 
+void test_range_exception(Vector& v) {
+    // test exception
+    try {
+        v[v.size()] = 1;
+    } 
+    catch (out_of_range& err) {
+        cerr << err.what() << '\n';
+    }
+}
+
+void test_constructor_exception() {
+    try {
+        Vector(-27);
+    }
+    catch (length_error& err) {
+        cerr << err.what() << '\n';
+        throw; // rethrow
+    }
+    catch (bad_alloc& err) {
+        // handle memory exhausion
+        cerr << err.what() << '\n';
+        terminate();
+    }
+}
+
 int main() {
     Vector v(10);
     for (int i = 0; i < v.size(); i++) {
         v[i] = i;
     }
+    cout << "Result: " << sqrt_sum(v) << '\n';
 
-    cout << "Result: " << sqrt_sum(v);
+    test_range_exception(v);
+    test_constructor_exception();
 }
