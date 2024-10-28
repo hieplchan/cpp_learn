@@ -38,7 +38,8 @@ void test_constructor_exception() {
     }
 }
 
-int main() {
+int MyMain() {
+// int main() {
     Vector v(10);
     for (int i = 0; i < v.size(); i++) {
         v[i] = i;
@@ -47,4 +48,6 @@ int main() {
 
     test_range_exception(v);
     test_constructor_exception();
+
+    return 0;
 }
