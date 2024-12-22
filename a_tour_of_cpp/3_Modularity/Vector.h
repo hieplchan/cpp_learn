@@ -1,5 +1,5 @@
-#ifndef MY_VECTOR_H_
-#define MY_VECTOR_H_
+#ifndef VECTOR_H_
+#define VECTOR_H_
 
 class Vector {
 public:
@@ -7,8 +7,8 @@ public:
     double& operator[](int index);
     int size();
 private:
-    double* elem;
     int sz;
+    double* elem;
 };
 
 #endif
