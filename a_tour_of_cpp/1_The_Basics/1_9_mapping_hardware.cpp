@@ -22,12 +22,16 @@ void test_reference()
 
     // reference and pointer are both memory adrress
     // but the using is different
-    r1 = r2;
+    // Assignment to a reference does not change what the reference refers to
+    // but assigns to the referenced object
+    r1 = r2; // // read through r2, write through r: x becomes 3
     cout << "x: " << x << " y: " << y << "\n";
 }
 
 int main()
 {
+    // x: 2 y: 3
     test_pointer();
+    // x: 3 y: 3
     test_reference();
 }
