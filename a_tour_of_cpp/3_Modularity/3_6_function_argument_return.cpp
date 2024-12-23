@@ -1,3 +1,5 @@
+// cl .\3_6_function_argument_return.cpp /std:c++17
+
 #include <iostream>
 #include <vector>
 
@@ -43,8 +45,8 @@ int main() {
     auto e = read_entry(cin);
     cout << e.name << ' ' << e.value << '\n';
     
-    // auto [n, v] = read_entry(cin); // structured binding required c++17
-    // cout << n << ' ' << v << '\n';
+    auto [n, c] = read_entry(cin); // structured binding required c++17
+    cout << n << ' ' << c << '\n';
 
     return 0;
 }
