@@ -1,4 +1,6 @@
-#include "Complex.h";
+// cl /I \. .\Test_Complex.cpp
+
+#include "Complex.h"
 
 int main() {
     // Const function test
@@ -7,7 +9,6 @@ int main() {
     z = cz;
     // cz = z; // ERROR: operator =() is non-const member function
     double x = z.real();
-
 
     return 0;
 }

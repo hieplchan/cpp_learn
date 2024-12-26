@@ -1,3 +1,5 @@
+// https://www.ibm.com/docs/en/i/7.5?topic=only-inline-member-functions-c
+
 /*
 Class definition itself contains only operation access to its representation
  */
@@ -28,6 +30,19 @@ public:
         return *this;
     }
 
-    Complex& operator*=(Complex z); // define else-where
-    Complex& operator/=(Complex z);
+    // Complex& operator*=(Complex z); // define else-where
+    // Complex& operator/=(Complex z);
 };
+
+// not inline by default, but not need direct access to representation so it's ok
+Complex operator+(Complex a, Complex b) { return a+=b; }
+Complex operator-(Complex a, Complex b) { return a-=b; }
+Complex operator-(Complex a) { return {-a.real(), -a.imag()}; }
+// Complex operator*(Complex a, Complex b) { return a*=b; }
+// Complex operator/(Complex a, Complex b) { return a/=b; }
+
+bool operator==(Complex a, Complex b) {
+    return a.real() == b.real() && a.imag() == b.imag();
+}
+
+bool operator!=(Complex a, Complex b) { return !(a ==b); }
