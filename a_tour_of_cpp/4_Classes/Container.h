@@ -14,6 +14,12 @@ public:
     // derived class can provice destructor implementation
     virtual ~Container() {}
 
+    /*
+    virual func usually implemented by using "virtual function table" and dynamic dispatch
+    (vtbl: table oif pointer to function, time efficient almost normal func call - 
+    space overhead = vtable on each object + vpointer to that table)
+    https://www.youtube.com/watch?v=FncNE2vdtwQ
+    */
     virtual double& operator[](int index) = 0;
     virtual int size() const = 0;
 };
