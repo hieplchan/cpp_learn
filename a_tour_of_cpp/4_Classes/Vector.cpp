@@ -9,6 +9,13 @@ Vector::Vector(int size)
     elem = new double[size];
 }
 
+// Version 2: add initializer-list constructor
+Vector::Vector(std::initializer_list<double> lst)
+:elem{new double[lst.size()]}, sz{static_cast<int>(lst.size())}
+{
+    std::copy(lst.begin(), lst.end(), elem);
+}
+
 // Version 2: add destructor
 Vector::~Vector() {
     delete[] elem; // delete array
@@ -24,6 +31,11 @@ double& Vector::operator[](int index)
 int Vector::size()
 {
     return sz;
+}
+
+// Version 2
+void Vector::push_back(double value) {
+
 }
 
 ///////////////// Version 1

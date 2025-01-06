@@ -1,6 +1,8 @@
 // cl /I \. .\Test_Vector.cpp .\Vector.cpp
 
 #include <iostream>
+#include <istream>
+
 #include "Vector.h"
 
 void test_exception(Vector&v) {
@@ -28,6 +30,22 @@ void test_destructor() {
     } // v2 is destroyed here
 } // v1 is destroyed here
 
+void test_list_init() {
+    Vector v1{1, 2, 3, 4, 5};
+    for (int i = 0; i < v1.size(); i++) {
+        std::cout << v1[i] << " ";
+    }
+    std::cout << '\n';
+}
+
+// Vector read_vector(std::istream& is) {
+//     Vector v; // still not implement default constructor yet
+//     for (double d; is>>d;) {
+//         v.push_back(d);
+//     }
+//     return v;
+// }
+
 int main() {
     Vector v(3);
 
@@ -46,6 +64,10 @@ int main() {
     test_invarion_constructor();
 
     test_destructor();
+
+    test_list_init();
+
+    // Vector v = read_vector(std::cin); // move Constructor
 
     return 0;
 }
