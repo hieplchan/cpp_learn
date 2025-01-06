@@ -9,7 +9,7 @@ public:
     ~Vector();
 
     double& operator[](int index);
-    int size();
+    int size() const;
     void push_back(double value);
 private:
     int sz;

@@ -1,9 +1,11 @@
-// cl /I \. .\Test_Vector.cpp .\Vector.cpp
+// cl /I \. .\Test_Vector.cpp .\Vector.cpp .\Vector_container.cpp
 
 #include <iostream>
 #include <istream>
 
 #include "Vector.h"
+#include "Container.h"
+#include "Vector_container.h"
 
 void test_exception(Vector&v) {
     try { // exception here handled by the handler define below
@@ -38,6 +40,14 @@ void test_list_init() {
     std::cout << '\n';
 }
 
+// this func use Container interface in complete ignorance of implementation details
+void test_container(Container& c) {
+    const int sz = c.size();
+    for (int i = 0; i < sz; i++) {
+        std::cout << c[i];
+    }
+}
+
 // Vector read_vector(std::istream& is) {
 //     Vector v; // still not implement default constructor yet
 //     for (double d; is>>d;) {
@@ -68,6 +78,9 @@ int main() {
     test_list_init();
 
     // Vector v = read_vector(std::cin); // move Constructor
+
+    Vector_container v2(10);
+    test_container(v2);
 
     return 0;
 }
