@@ -2,7 +2,7 @@
 
 class Circle : public Shape {
 public:
-    Circle(Point p, int rad);
+    Circle(Point p, int rad) : x{p}, r{rad} {};
 
     Point center() const override {
         return x;
