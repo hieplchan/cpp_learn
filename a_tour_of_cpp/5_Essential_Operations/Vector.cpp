@@ -55,13 +55,16 @@ Vector::Vector(Vector&& other)
 Vector& Vector::operator=(Vector&& other) {
     std::cout << "Moved assignment!" << std::endl;
 
-    delete[] elem;
+    if (this != &other) {
+        delete[] elem;
 
-    elem = other.elem;
-    sz = other.size();
+        elem = other.elem;
+        sz = other.size();
 
-    other.elem = nullptr;
-    other.sz = 0;
+        other.elem = nullptr;
+        other.sz = 0;
+    }
+
     return *this;
 }
 
