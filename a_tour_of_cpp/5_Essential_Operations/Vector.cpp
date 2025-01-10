@@ -54,6 +54,9 @@ Vector::Vector(Vector&& other)
 // 5.2 Add move assignment
 Vector& Vector::operator=(Vector&& other) {
     std::cout << "Moved assignment!" << std::endl;
+
+    delete[] elem;
+
     elem = other.elem;
     sz = other.size();
 
