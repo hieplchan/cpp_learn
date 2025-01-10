@@ -41,6 +41,26 @@ Vector& Vector::operator=(const Vector& other) {
     return *this;
 }
 
+// 5.2 Add move constructor
+Vector::Vector(Vector&& other)
+    : elem{other.elem}, // steal other's elem
+    sz{other.size()}
+{
+    std::cout << "Moved constructor!" << std::endl;
+    other.elem = nullptr; // now has no elem
+    other.sz = 0;
+}
+
+// 5.2 Add move assignment
+Vector& Vector::operator=(Vector&& other) {
+    std::cout << "Moved assignment!" << std::endl;
+    elem = other.elem;
+    sz = other.size();
+
+    other.elem = nullptr;
+    other.sz = 0;
+    return *this;
+}
 
 double& Vector::operator[](int index) 
 {
@@ -56,4 +76,17 @@ int Vector::size() const
 
 void Vector::push_back(double value) {
 
+}
+
+// 5.2 Move containers
+Vector operator+(Vector& a, Vector& b) {
+    if (a.size() != b.size())
+        throw std::length_error{"Vector_size_mismatch"};
+
+    Vector res(a.size());
+    for (int i = 0; i < a.size(); i++) {
+        res[i] = a[i] + b[i];
+    }
+
+    return res;
 }

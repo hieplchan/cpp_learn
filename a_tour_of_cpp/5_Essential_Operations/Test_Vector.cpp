@@ -28,7 +28,21 @@ void test_copy_constructor_assignment() {
     print_vector(v3);
 }
 
+void test_move_containers() {
+    Vector v1 {0, 1, 2};
+    Vector v2 {3, 4, 5};
+
+    Vector res = v1 + v2; // move constructor
+
+    print_vector(res);
+
+    Vector v3(3);
+    v3 = std::move(res); // move assignment
+    print_vector(v3);
+}
+
 int main() {
-    test_copy_constructor_assignment();
+    // test_copy_constructor_assignment();
+    test_move_containers();
     return 0;
 }
