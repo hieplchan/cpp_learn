@@ -46,3 +46,8 @@ bool operator==(Complex a, Complex b) {
 }
 
 bool operator!=(Complex a, Complex b) { return !(a ==b); }
+
+// 5.4.4 User-defiend litteral
+// constexpr Complex<double> operator""i(long double arg) {
+//     return Complex{0, arg};
+// }
