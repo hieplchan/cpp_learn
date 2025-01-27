@@ -1,21 +1,24 @@
 // cl /I \. .\Test_Vector.cpp .\Vector.cpp
 
 #include <iostream>
+#include <string>
+
 #include "Vector.h"
 
 template<typename T>
 void printVector(Vector<T>& v) 
 {
-    for (int i = 0; i < v.size(); i++) 
+    for (auto& a : v)
     {
-        std::cout << v[i];
+        std::cout << a << " ";
     }
     std::cout << std::endl;
 }
 
+template<typename T>
 void testSimpleVector()
 {
-    Vector<int> v1(2);
+    Vector<T> v1(2);
     for (int i = 0; i < v1.size(); i++)
     {
         v1[i] = i;
@@ -26,5 +29,7 @@ void testSimpleVector()
 
 int main() 
 {
-    testSimpleVector();
+    testSimpleVector<int>();
+    testSimpleVector<double>();
+    testSimpleVector<std::string>();
 }
