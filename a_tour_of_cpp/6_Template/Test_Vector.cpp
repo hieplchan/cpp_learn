@@ -1,4 +1,4 @@
-// cl /I \. .\Test_Vector.cpp .\Vector.cpp
+// cl /I \. .\Test_Vector.cpp
 
 #include <iostream>
 #include <string>
@@ -18,7 +18,7 @@ void printVector(Vector<T>& v)
 template<typename T>
 void testSimpleVector()
 {
-    Vector<T> v1(2);
+    Vector<T> v1(3);
     for (int i = 0; i < v1.size(); i++)
     {
         v1[i] = i;
