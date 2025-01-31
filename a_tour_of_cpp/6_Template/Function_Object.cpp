@@ -41,7 +41,7 @@ template<typename C, typename P>
 int count(const C& c, P pred)
 {
     int count = 0;
-    for (auto x : c)
+    for (const auto& x : c)
         if (pred(x))
             count++;
     return count;

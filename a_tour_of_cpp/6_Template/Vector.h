@@ -19,6 +19,9 @@ public:
     T& operator[](int index);
     int size() const;
 
+    T* begin() const;
+    T* end() const;
+
 private:
     T* elem;
     int sz;
@@ -73,13 +76,13 @@ int Vector<T>::size() const
 }
 
 template<typename T>
-T* begin(Vector<T>& x)
+T* Vector<T>::begin() const
 {
-    return x.size() ? &x[0] : nullptr;
+    return size() ? &elem[0] : nullptr; 
 }
 
 template<typename T>
-T* end(Vector<T>& x)
+T* Vector<T>::end() const
 {
-    return x.size() ? &x[0] + x.size() : nullptr;
+    return size() ? &elem[0] + size() : nullptr;
 }
