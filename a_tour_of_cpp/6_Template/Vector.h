@@ -6,6 +6,13 @@ class Vector
 {
 public:
     Vector(int size);
+    Vector(std::initializer_list<T> list);
+
+    Vector(const Vector& other);
+    Vector& operator=(const Vector other);    
+
+    Vector(Vector&& other);
+    Vector& operator=(Vector&& other);
 
     ~Vector();
 
@@ -26,6 +33,20 @@ Vector<T>::Vector(int size)
     }
     sz = size;
     elem = new T[sz];
+}
+
+template<typename T>
+Vector<T>::Vector(std::initializer_list<T> list)
+    : elem{new T[list.size()]}, sz{static_cast<int>(list.size())}
+{
+    std::copy(list.begin(), list.end(), elem);
+}
+
+template<typename T>
+Vector<T>::Vector(const Vector& other)
+    : elem{new T[other.size()]}, sz{other.size()}
+{
+    memcpy(elem, other.elem, other.size() * sizeof(T));
 }
 
 template<typename T>
