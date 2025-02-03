@@ -1,3 +1,5 @@
+// https://www.youtube.com/watch?v=2kY-go52rNw&t=505s
+
 // cl /std:c++17 /I \. .\Variables_Template.cpp
 
 #include <iostream>
