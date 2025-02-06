@@ -25,6 +25,24 @@ constexpr space_vector<T> external_acceleration = { T{}, T{-9.8}, T{} };
 template<typename T, typename T2>
 constexpr bool Assignable = std::is_assignable<T&, T2>::value;
 
+#pragma region Variable Template Fib
+
+template<int Value>
+constexpr auto fib = fib<Value-1> + fib<Value-2>;
+
+template<>
+constexpr auto fib<0> = 0;
+
+template<>
+constexpr auto fib<1> = 1;
+
+void testFibCompileTime()
+{
+    std::cout << fib<10> << std::endl;
+}
+
+#pragma endregion
+
 template<typename T>
 void testing()
 {
